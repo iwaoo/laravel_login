@@ -7,9 +7,9 @@
             <div class="d-flex justify-content-between align-items-baseline">
                 <div id="fo-bu" class="d-flex align-items-center pb-3">
                     <div class="h4"><?php echo e($user->name); ?></div>
-
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->denies('view', $user->profile)): ?>
                     <follow-button user-id="<?php echo e($user->id); ?>" follows="<?php echo e($follows); ?>"></follow-button>
-
+                    <?php endif; ?>
                 </div>
             </div>
 

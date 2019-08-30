@@ -9,9 +9,9 @@
             <div class="d-flex justify-content-between align-items-baseline">
                 <div id="fo-bu" class="d-flex align-items-center pb-3">
                     <div class="h4">{{ $user->name }}</div>
-
+                    @cannot ('view', $user->profile)
                     <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
-
+                    @endcannot
                 </div>
             </div>
 

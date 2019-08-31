@@ -14,8 +14,8 @@
             </div>
 
             <div class="d-flex">
-                <followers followers_count="<?php echo e($followersCount); ?>"></followers>
-                <following following_count="<?php echo e($followingCount); ?>"></following>
+                <followers usernoid="<?php echo e($user->id); ?>" followers_count="<?php echo e($followersCount); ?>"></followers>
+                <following usernoid="<?php echo e($user->id); ?>" following_count="<?php echo e($followingCount); ?>"></following>
             </div>
 
             <div class="pt-4 font-weight-bold"><?php echo e($user->profile->title); ?></div>

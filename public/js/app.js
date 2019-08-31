@@ -1743,15 +1743,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['followers_count'],
-  mounted: function mounted() {},
+  props: ['usernoid', 'followers_count'],
+  mounted: function mounted() {
+    console.log(this.usernoid);
+  },
   beforeMount: function beforeMount() {
     if (this.$store.state.followers_count == 'followers_count') {
       this.$store.state.followers_count = this.followers_count;
     }
   },
   computed: {
-    followers: function followers() {
+    count_followers: function count_followers() {
       return this.$store.state.followers_count;
     }
   }
@@ -1775,7 +1777,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['following_count'],
+  props: ['usernoid', 'following_count'],
   mounted: function mounted() {},
   beforeMount: function beforeMount() {
     if (this.$store.state.following_count == 'following_count') {
@@ -1783,7 +1785,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    following: function following() {
+    count_following: function count_following() {
       return this.$store.state.following_count;
     }
   }
@@ -37152,10 +37154,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "pr-5" }, [
-      _c("strong", [_vm._v(_vm._s(_vm.followers))]),
-      _vm._v(" followers")
+  return _c("div", { staticClass: "pr-5" }, [
+    _c("a", { attrs: { title: "", href: "/follower_list/" + _vm.usernoid } }, [
+      _c("strong", [_vm._v(_vm._s(_vm.count_followers))]),
+      _vm._v("followers")
     ])
   ])
 }
@@ -37181,10 +37183,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "pr-5" }, [
-      _c("strong", [_vm._v(_vm._s(_vm.following))]),
-      _vm._v(" following")
+  return _c("div", { staticClass: "pr-5" }, [
+    _c("a", { attrs: { title: "", href: "/following_list/" + _vm.usernoid } }, [
+      _c("strong", [_vm._v(_vm._s(_vm.count_following))]),
+      _vm._v("followers")
     ])
   ])
 }

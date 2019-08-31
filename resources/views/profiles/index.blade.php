@@ -16,8 +16,8 @@
             </div>
 
             <div class="d-flex">
-                <followers followers_count="{{ $followersCount }}"></followers>
-                <following following_count="{{ $followingCount }}"></following>
+                <followers usernoid="{{ $user->id }}" followers_count="{{ $followersCount }}"></followers>
+                <following usernoid="{{ $user->id }}" following_count="{{ $followingCount }}"></following>
             </div>
 
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>

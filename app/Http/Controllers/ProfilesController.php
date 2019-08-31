@@ -25,15 +25,16 @@ class ProfilesController extends Controller
    */
   public function index(User $user)
   {
-      
+
       $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
+
       $followersCount = Cache::remember(
-      'count.followers.' . $user->id,
-      now()->addSeconds(30),
-      function () use ($user) {
-          return $user->profile->followers->count();
-      });
+        'count.followers.' . $user->id,
+        now()->addSeconds(30),
+        function () use ($user) {
+            return $user->profile->followers->count();
+        });
 
       $followingCount = Cache::remember(
           'count.following.' . $user->id,

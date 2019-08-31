@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <div class="pr-5"><strong>{{ following }}</strong> following</div>
+    <div class="pr-5">
+        <a title="" :href="`/following_list/${usernoid}`"><strong>{{ count_following }}</strong>followers</a>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['following_count'],
+        props: ['usernoid', 'following_count'],
 
         mounted() {
 
@@ -17,7 +17,7 @@
           }
         },
         computed: {
-          following () {
+          count_following () {
             return this.$store.state.following_count
           }
         },

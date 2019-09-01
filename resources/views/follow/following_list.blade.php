@@ -10,10 +10,9 @@
                 <div id="fo-bu" class="d-flex align-items-center pb-3">
                   <ul class="list-unstyled">
                   <?php foreach ($following as $key => $follow): ?>
-                      <li>{{ $follow->user->name }}</li>
+                      <li><a title="" href="/profile/{{ $follow->user->id }}">{{ $follow->user->name }}</a></li>
                   <?php endforeach; ?>
                   </ul>
-
                 </div>
             </div>
 

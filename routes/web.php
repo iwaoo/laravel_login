@@ -22,4 +22,9 @@ Route::get('follower_list/{user}','FollowerListController@index')->name('followe
 Route::get('following_list/{user}','FollowingListController@index')->name('following_list.show');
 
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
-Route::post('/profile/{user}', 'ProfilesController@store');
+Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
+Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
+
+
+
+Route::get('/follow_couont/{user}', 'ProfilesController@follow_couont');

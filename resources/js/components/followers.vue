@@ -1,6 +1,6 @@
 <template>
     <div class="pr-5">
-        <a title="" :href="`/follower_list/${usernoid}`"><strong>{{ count_followers }}</strong>followers</a>
+        <a title="" :href="`/follower_list/${usernoid}`"><strong>{{ count_followers }}</strong>フォロワー</a>
     </div>
 </template>
 

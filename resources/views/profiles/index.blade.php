@@ -14,6 +14,10 @@
                     @endcannot
                 </div>
             </div>
+            @can('update', $user->profile)
+                <a class="btn-primary" href="/profile/{{ $user->id }}/edit" role="button">プロファイルを編集</a>
+                <button class="btn" type="submit">Button</button>
+            @endcan
 
             <div class="d-flex">
                 <followers usernoid="{{ $user->id }}" followers_count="{{ $followersCount }}"></followers>

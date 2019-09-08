@@ -25,7 +25,7 @@ const store = new Vuex.Store({
         .then(function(data) {
           if (data) {
             console.log(data);
-            axios.post('/profile/' + userId)
+            axios.get('/follow_couont/' + userId)
               .then(response => {
                   state.followers_count = response.data.followersCount;
                   state.following_count = response.data.followingCount;

@@ -1744,9 +1744,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['usernoid', 'followers_count'],
-  mounted: function mounted() {
-    console.log(this.usernoid);
-  },
+  mounted: function mounted() {},
   beforeMount: function beforeMount() {
     if (this.$store.state.followers_count == 'followers_count') {
       this.$store.state.followers_count = this.followers_count;
@@ -37157,7 +37155,7 @@ var render = function() {
   return _c("div", { staticClass: "pr-5" }, [
     _c("a", { attrs: { title: "", href: "/follower_list/" + _vm.usernoid } }, [
       _c("strong", [_vm._v(_vm._s(_vm.count_followers))]),
-      _vm._v("followers")
+      _vm._v("フォロワー")
     ])
   ])
 }
@@ -37186,7 +37184,7 @@ var render = function() {
   return _c("div", { staticClass: "pr-5" }, [
     _c("a", { attrs: { title: "", href: "/following_list/" + _vm.usernoid } }, [
       _c("strong", [_vm._v(_vm._s(_vm.count_following))]),
-      _vm._v("followers")
+      _vm._v("フォロー中")
     ])
   ])
 }
@@ -50814,7 +50812,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       }).then(function (data) {
         if (data) {
           console.log(data);
-          axios.post('/profile/' + userId).then(function (response) {
+          axios.get('/follow_couont/' + userId).then(function (response) {
             state.followers_count = response.data.followersCount;
             state.following_count = response.data.followingCount;
           })["catch"](function (errors) {

@@ -12,6 +12,10 @@
                     <?php endif; ?>
                 </div>
             </div>
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $user->profile)): ?>
+                <a class="btn-primary" href="/profile/<?php echo e($user->id); ?>/edit" role="button">プロファイルを編集</a>
+                <button class="btn" type="submit">Button</button>
+            <?php endif; ?>
 
             <div class="d-flex">
                 <followers usernoid="<?php echo e($user->id); ?>" followers_count="<?php echo e($followersCount); ?>"></followers>

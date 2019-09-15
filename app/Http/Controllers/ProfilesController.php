@@ -30,11 +30,6 @@ class ProfilesController extends Controller
 
       $followersCount = $user->profile->followers->count();
 
-<<<<<<< HEAD
-      $followersCount = $user->profile->followers->count();
-
-=======
->>>>>>> feature/home
       $followingCount = $user->following->count();
 
       return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount'));

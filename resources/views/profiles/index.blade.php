@@ -16,7 +16,7 @@
             </div>
             @can('update', $user->profile)
                 <a class="btn-primary" href="/profile/{{ $user->id }}/edit" role="button">プロファイルを編集</a>
-                <button class="btn" type="submit">Button</button>
+                <button class="btn" type="submit"></button>
             @endcan
 
             <div class="d-flex">

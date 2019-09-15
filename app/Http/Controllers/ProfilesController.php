@@ -25,23 +25,12 @@ class ProfilesController extends Controller
    */
   public function index(User $user)
   {
-
+      // ログインユーザーがフォローしてる場合はtrue
       $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
+      $followersCount = $user->profile->followers->count();
 
-      $followersCount = Cache::remember(
-        'count.followers.' . $user->id,
-        now()->addSeconds(30),
-        function () use ($user) {
-            return $user->profile->followers->count();
-        });
-
-      $followingCount = Cache::remember(
-          'count.following.' . $user->id,
-          now()->addSeconds(30),
-          function () use ($user) {
-              return $user->following->count();
-          });
+      $followingCount = $user->following->count();
 
       return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount'));
   }
@@ -61,7 +50,7 @@ class ProfilesController extends Controller
     ]);
 
     auth()->user()->profile->update($data);
-    return redirect("/profile/{$user->id}");
+    return redirect("/home");
 }
 
 

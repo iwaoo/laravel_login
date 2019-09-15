@@ -2,24 +2,24 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
-                <div class="d-flex align-items-center pb-3">
+                <div id="fo-bu" class="d-flex align-items-center pb-3">
                     <div class="h4"><?php echo e($user->name); ?></div>
-
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->denies('view', $user->profile)): ?>
+                    <follow-button user-id="<?php echo e($user->id); ?>" follows="<?php echo e($follows); ?>"></follow-button>
+                    <?php endif; ?>
                 </div>
-
             </div>
-
+            <a class="btn-primary" href="/profile/<?php echo e($user->id); ?>" role="button">プロファイル</a>
 
             <div class="pt-4 font-weight-bold"><?php echo e($user->profile->title); ?></div>
             <div><?php echo e($user->profile->description); ?></div>
+            <test></test>
 
         </div>
     </div>
-
 </div>
 <?php $__env->stopSection(); ?>
 

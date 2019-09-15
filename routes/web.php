@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home','HomeController@index')->name('home.show');
 Auth::routes();
 
 Route::post('follow/{user}', 'FollowsController@store');

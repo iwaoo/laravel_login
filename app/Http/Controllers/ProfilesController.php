@@ -25,12 +25,16 @@ class ProfilesController extends Controller
    */
   public function index(User $user)
   {
-
+      // ログインユーザーがフォローしてる場合はtrue
       $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
-
 
       $followersCount = $user->profile->followers->count();
 
+<<<<<<< HEAD
+      $followersCount = $user->profile->followers->count();
+
+=======
+>>>>>>> feature/home
       $followingCount = $user->following->count();
 
       return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount'));
@@ -51,7 +55,7 @@ class ProfilesController extends Controller
     ]);
 
     auth()->user()->profile->update($data);
-    return redirect("/profile/{$user->id}");
+    return redirect("/home");
 }
 
 

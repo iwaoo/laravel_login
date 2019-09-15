@@ -29,9 +29,9 @@ class ProfilesController extends Controller
       $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
 
-      $followersCount = return $user->profile->followers->count();
+      $followersCount = $user->profile->followers->count();
 
-      $followingCount = return $user->following->count();
+      $followingCount = $user->following->count();
 
       return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount'));
   }

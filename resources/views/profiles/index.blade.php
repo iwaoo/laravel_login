@@ -15,7 +15,7 @@
                 </div>
             </div>
             @can('update', $user->profile)
-                <a class="btn-primary" href="/profile/{{ $user->id }}/edit" role="button">プロファイルを編集</a>
+                <a class="btn-primary" href="/profile/{{ $user->id }}/edit" role="button">编辑个人资料</a>
                 <button class="btn" type="submit"></button>
             @endcan
 
@@ -26,7 +26,18 @@
 
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
             <div>{{ $user->profile->description }}</div>
-            <test></test>
+            <div class="d-flex justify-content-between align-items-baseline">
+                <div id="fo-bu" class="d-flex align-items-center pb-3">
+                  <ul class="list-unstyled">
+                    <?php foreach ($talks as $talk): ?>
+                        <p>问话：{{ $talk->listen }}</p>
+                        <p>{{ $talk->name }}：{{ $talk->talk }}</p>
+                    <?php endforeach; ?>
+
+                  </ul>
+
+                </div>
+            </div>
 
         </div>
     </div>

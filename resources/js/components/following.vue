@@ -1,6 +1,6 @@
 <template>
     <div class="pr-5">
-        <a title="" :href="`/following_list/${usernoid}`"><strong>{{ count_following }}</strong>フォロー中</a>
+        <a title="" :href="`/following_list/${usernoid}`"><strong>{{ count_following }}</strong>关注</a>
     </div>
 </template>
 

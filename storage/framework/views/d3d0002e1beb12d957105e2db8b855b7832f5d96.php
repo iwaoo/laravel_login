@@ -12,7 +12,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <a class="btn-primary" href="/profile/<?php echo e($user->id); ?>" role="button">プロファイル</a>
+            <a class="btn-primary" href="/profile/<?php echo e($user->id); ?>" role="button">个人资料</a>
 
             <div class="pt-4 font-weight-bold"><?php echo e($user->profile->title); ?></div>
             <div><?php echo e($user->profile->description); ?></div>

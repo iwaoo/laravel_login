@@ -13,7 +13,7 @@
                     <h1>Edit Profile</h1>
                 </div>
                 <div class="form-group row">
-                    <label for="title" class="col-md-4 col-form-label">Title</label>
+                    <label for="title" class="col-md-4 col-form-label">名字</label>
 
                     <input id="title"
                            type="text"
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="description" class="col-md-4 col-form-label">Description</label>
+                    <label for="description" class="col-md-4 col-form-label">简介</label>
 
                     <input id="description"
                            type="text"

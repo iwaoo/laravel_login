@@ -32,7 +32,9 @@ class ProfilesController extends Controller
 
       $followingCount = $user->following->count();
 
-      return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount'));
+      $talks = $user->hasTalk;
+      //dd($talks);
+      return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount', 'talks'));
   }
 
   public function edit(User $user)

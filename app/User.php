@@ -37,6 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function hasTalk()
+    {
+      return $this->belongsToMany(Talk::class);
+    }
+
     public function following()
     {
         return $this->belongsToMany(Profile::class);

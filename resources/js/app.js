@@ -18,7 +18,7 @@ import store from './store/store.js'
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
+Vue.component('talk-checkbox', require('./components/talk-checkbox.vue').default);
 Vue.component('follow-button', require('./components/follow-button.vue').default);
 Vue.component('followers', require('./components/followers.vue').default);
 Vue.component('following', require('./components/following.vue').default);

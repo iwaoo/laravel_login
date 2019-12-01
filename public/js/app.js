@@ -1720,7 +1720,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     buttonText: function buttonText() {
-      return this.status ? 'Unfollow' : 'Follow';
+      return this.status ? '取消关注' : '关注';
     }
   }
 });
@@ -1787,6 +1787,66 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.state.following_count;
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/talk-checkbox.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/talk-checkbox.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['talks'],
+  created: function created() {
+    console.log(this.talks);
+  },
+  data: function data() {
+    return {
+      checkNames: []
+    };
+  },
+  computed: {
+    // 算出 getter 関数
+    reverTalks: function reverTalks() {
+      // `this` は vm インスタンスを指します
+      return JSON.parse(this.talks);
+    }
+  },
+  methods: {
+    handleClick: function handleClick() {
+      console.log(this.checkNames);
+      axios.post('/connect/' + this.checkNames).then(function (response) {
+        window.location.reload();
+      })["catch"](function (errors) {
+        if (errors.response.status == 401) {
+          window.location = '/login';
+        }
+      });
+    }
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -37155,7 +37215,7 @@ var render = function() {
   return _c("div", { staticClass: "pr-5" }, [
     _c("a", { attrs: { title: "", href: "/follower_list/" + _vm.usernoid } }, [
       _c("strong", [_vm._v(_vm._s(_vm.count_followers))]),
-      _vm._v("フォロワー")
+      _vm._v("粉丝")
     ])
   ])
 }
@@ -37184,8 +37244,72 @@ var render = function() {
   return _c("div", { staticClass: "pr-5" }, [
     _c("a", { attrs: { title: "", href: "/following_list/" + _vm.usernoid } }, [
       _c("strong", [_vm._v(_vm._s(_vm.count_following))]),
-      _vm._v("フォロー中")
+      _vm._v("关注")
     ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/talk-checkbox.vue?vue&type=template&id=342d74ee&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/talk-checkbox.vue?vue&type=template&id=342d74ee& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "pr-5" }, [
+    _c(
+      "ul",
+      _vm._l(_vm.reverTalks, function(talk) {
+        return _c("li", [
+          _c("label", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checkNames,
+                  expression: "checkNames"
+                }
+              ],
+              attrs: { type: "radio" },
+              domProps: {
+                value: talk.id,
+                checked: _vm._q(_vm.checkNames, talk.id)
+              },
+              on: {
+                change: function($event) {
+                  _vm.checkNames = talk.id
+                }
+              }
+            }),
+            _vm._v(_vm._s(talk.name))
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(talk.listen))]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(talk.talk))])
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.checkNames))]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.handleClick } }, [_vm._v("送信")])
   ])
 }
 var staticRenderFns = []
@@ -50423,6 +50547,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+Vue.component('talk-checkbox', __webpack_require__(/*! ./components/talk-checkbox.vue */ "./resources/js/components/talk-checkbox.vue")["default"]);
 Vue.component('follow-button', __webpack_require__(/*! ./components/follow-button.vue */ "./resources/js/components/follow-button.vue")["default"]);
 Vue.component('followers', __webpack_require__(/*! ./components/followers.vue */ "./resources/js/components/followers.vue")["default"]);
 Vue.component('following', __webpack_require__(/*! ./components/following.vue */ "./resources/js/components/following.vue")["default"]);
@@ -50700,6 +50825,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_following_vue_vue_type_template_id_431cbc56___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_following_vue_vue_type_template_id_431cbc56___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/talk-checkbox.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/talk-checkbox.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _talk_checkbox_vue_vue_type_template_id_342d74ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./talk-checkbox.vue?vue&type=template&id=342d74ee& */ "./resources/js/components/talk-checkbox.vue?vue&type=template&id=342d74ee&");
+/* harmony import */ var _talk_checkbox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./talk-checkbox.vue?vue&type=script&lang=js& */ "./resources/js/components/talk-checkbox.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _talk_checkbox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _talk_checkbox_vue_vue_type_template_id_342d74ee___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _talk_checkbox_vue_vue_type_template_id_342d74ee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/talk-checkbox.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/talk-checkbox.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/talk-checkbox.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_talk_checkbox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./talk-checkbox.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/talk-checkbox.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_talk_checkbox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/talk-checkbox.vue?vue&type=template&id=342d74ee&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/talk-checkbox.vue?vue&type=template&id=342d74ee& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_talk_checkbox_vue_vue_type_template_id_342d74ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./talk-checkbox.vue?vue&type=template&id=342d74ee& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/talk-checkbox.vue?vue&type=template&id=342d74ee&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_talk_checkbox_vue_vue_type_template_id_342d74ee___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_talk_checkbox_vue_vue_type_template_id_342d74ee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

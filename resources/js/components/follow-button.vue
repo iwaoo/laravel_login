@@ -28,7 +28,7 @@
 
         computed: {
             buttonText() {
-                return (this.status) ? 'Unfollow' : 'Follow';
+                return (this.status) ? '取消关注' : '关注';
             }
         }
     }

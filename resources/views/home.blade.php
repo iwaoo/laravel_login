@@ -14,7 +14,7 @@
                     @endcannot
                 </div>
             </div>
-            <a class="btn-primary" href="/profile/{{ $user->id }}" role="button">プロファイル</a>
+            <a class="btn-primary" href="/profile/{{ $user->id }}" role="button">个人资料</a>
 
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
             <div>{{ $user->profile->description }}</div>

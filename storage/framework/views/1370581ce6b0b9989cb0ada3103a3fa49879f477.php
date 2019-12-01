@@ -13,7 +13,7 @@
                 </div>
             </div>
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $user->profile)): ?>
-                <a class="btn-primary" href="/profile/<?php echo e($user->id); ?>/edit" role="button">プロファイルを編集</a>
+                <a class="btn-primary" href="/profile/<?php echo e($user->id); ?>/edit" role="button">编辑个人资料</a>
                 <button class="btn" type="submit"></button>
             <?php endif; ?>
 
@@ -24,7 +24,18 @@
 
             <div class="pt-4 font-weight-bold"><?php echo e($user->profile->title); ?></div>
             <div><?php echo e($user->profile->description); ?></div>
-            <test></test>
+            <div class="d-flex justify-content-between align-items-baseline">
+                <div id="fo-bu" class="d-flex align-items-center pb-3">
+                  <ul class="list-unstyled">
+                    <?php foreach ($talks as $talk): ?>
+                        <p>问话：<?php echo e($talk->listen); ?></p>
+                        <p><?php echo e($talk->name); ?>：<?php echo e($talk->talk); ?></p>
+                    <?php endforeach; ?>
+
+                  </ul>
+
+                </div>
+            </div>
 
         </div>
     </div>

@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/gacha_drawing/create', 'GachaDrawingController@create')->name('gacha_drawing.create');
+Route::post('/gacha_drawing', 'GachaDrawingController@store')->name('gacha_drawing.store');
+
+
 Route::get('/talks', 'TalksController@index')->name('talks.index');
 Route::get('/talks/create', 'TalksController@create')->name('talks.create');
 Route::post('/talks', 'TalksController@store');

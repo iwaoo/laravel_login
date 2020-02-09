@@ -6,30 +6,30 @@
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <div id="fo-bu" class="d-flex align-items-center pb-3">
-                    <div class="h4"><?php echo e($user->name); ?></div>
+                    <div class="h4"><?php echo e($user->name, false); ?></div>
                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->denies('view', $user->profile)): ?>
-                    <follow-button user-id="<?php echo e($user->id); ?>" follows="<?php echo e($follows); ?>"></follow-button>
+                    <follow-button user-id="<?php echo e($user->id, false); ?>" follows="<?php echo e($follows, false); ?>"></follow-button>
                     <?php endif; ?>
                 </div>
             </div>
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $user->profile)): ?>
-                <a class="btn-primary" href="/profile/<?php echo e($user->id); ?>/edit" role="button">编辑个人资料</a>
+                <a class="btn-primary" href="/profile/<?php echo e($user->id, false); ?>/edit" role="button">编辑个人资料</a>
                 <button class="btn" type="submit"></button>
             <?php endif; ?>
 
             <div class="d-flex">
-                <followers usernoid="<?php echo e($user->id); ?>" followers_count="<?php echo e($followersCount); ?>"></followers>
-                <following usernoid="<?php echo e($user->id); ?>" following_count="<?php echo e($followingCount); ?>"></following>
+                <followers usernoid="<?php echo e($user->id, false); ?>" followers_count="<?php echo e($followersCount, false); ?>"></followers>
+                <following usernoid="<?php echo e($user->id, false); ?>" following_count="<?php echo e($followingCount, false); ?>"></following>
             </div>
 
-            <div class="pt-4 font-weight-bold"><?php echo e($user->profile->title); ?></div>
-            <div><?php echo e($user->profile->description); ?></div>
+            <div class="pt-4 font-weight-bold"><?php echo e($user->profile->title, false); ?></div>
+            <div><?php echo e($user->profile->description, false); ?></div>
             <div class="d-flex justify-content-between align-items-baseline">
                 <div id="fo-bu" class="d-flex align-items-center pb-3">
                   <ul class="list-unstyled">
                     <?php foreach ($talks as $talk): ?>
-                        <p>问话：<?php echo e($talk->listen); ?></p>
-                        <p><?php echo e($talk->name); ?>：<?php echo e($talk->talk); ?></p>
+                        <p>问话：<?php echo e($talk->listen, false); ?></p>
+                        <p><?php echo e($talk->name, false); ?>：<?php echo e($talk->talk, false); ?></p>
                     <?php endforeach; ?>
 
                   </ul>

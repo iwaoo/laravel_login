@@ -19,7 +19,7 @@
     export default {
       props: ['talks'],
       created() {
-        console.log(this.talks)
+
       },
       data:function () {
         return {
@@ -36,7 +36,7 @@
       },
       methods: {
         handleClick: function () {
-          console.log(this.checkNames);
+          
           axios.post('/connect/' + this.checkNames)
             .then(response => {
                 window.location.reload();

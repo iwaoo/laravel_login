@@ -41,7 +41,7 @@ class TalksController extends Controller
         }
       }
 
-      //dd($talkIds);
+//      dd($talks);
 
       return view('talks.index', compact('talks'));
 

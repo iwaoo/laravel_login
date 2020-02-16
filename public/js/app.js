@@ -1842,44 +1842,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+var form_data_list = {
+  name: '',
+  first_image: '',
+  first_image_name: "---",
+  second_image: '',
+  second_image_name: "---"
+};
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
   data: function data() {
     return {
       form: {
-        name: null,
-        first_image: null,
-        first_image_name: "---",
-        second_image: null,
-        second_image_name: "---"
+        name: 'テスト'
       }
     };
   },
   methods: {
     onFileChange: function onFileChange(e) {
-      console.log(e.target.files[0]);
       var file = e.target.files[0];
       var form_name = e.target.name;
+      form_data_list.name = this.form.name;
 
       if (form_name == "first_image") {
-        this.form.first_image = file;
-        this.form.first_image_name = file.name;
+        form_data_list.first_image = file;
+        form_data_list.first_image_name = file.name;
       }
 
       if (form_name == "second_image") {
-        this.form.second_image = file;
-        this.form.second_image_name = file.name;
+        form_data_list.second_image = file;
+        form_data_list.second_image_name = file.name;
       }
     },
     submit: function submit() {
       var formData = new FormData();
 
-      for (var key in this.form) {
-        formData.append(key, this.form[key]);
+      for (var key in form_data_list) {
+        formData.append(key, form_data_list[key]);
       } // コンソールで確認
-      // axiosで送信処理を書く
-      // axios.post(apiUrl, formData)
 
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = formData[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+          console.log(item);
+        } // axiosで送信処理を書く
+        // axios.post(apiUrl, formData)
+
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+            _iterator["return"]();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
     }
   }
 });
@@ -37375,7 +37403,7 @@ var render = function() {
             }
           ],
           staticClass: "input",
-          attrs: { type: "text", placeholder: "山田太郎", name: "name" },
+          attrs: { type: "text", placeholder: "", name: "name" },
           domProps: { value: _vm.form.name },
           on: {
             input: function($event) {

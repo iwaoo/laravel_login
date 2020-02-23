@@ -406,8 +406,12 @@ class ComposerStaticInit0fec995b5e68a37ec8e1b4a90205f872
     );
 
     public static $classMap = array (
+        'App\\Admin\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Admin/Controllers/AuthController.php',
+        'App\\Admin\\Controllers\\ExampleController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ExampleController.php',
+        'App\\Admin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Admin/Controllers/HomeController.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\GachaStyle' => __DIR__ . '/../..' . '/app/GachaStyle.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -418,6 +422,7 @@ class ComposerStaticInit0fec995b5e68a37ec8e1b4a90205f872
         'App\\Http\\Controllers\\FollowerListController' => __DIR__ . '/../..' . '/app/Http/Controllers/FollowerListController.php',
         'App\\Http\\Controllers\\FollowingListController' => __DIR__ . '/../..' . '/app/Http/Controllers/FollowingListController.php',
         'App\\Http\\Controllers\\FollowsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FollowsController.php',
+        'App\\Http\\Controllers\\GachaDrawingController' => __DIR__ . '/../..' . '/app/Http/Controllers/GachaDrawingController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ProfilesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfilesController.php',
         'App\\Http\\Controllers\\TalksController' => __DIR__ . '/../..' . '/app/Http/Controllers/TalksController.php',

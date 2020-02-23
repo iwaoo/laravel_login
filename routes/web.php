@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/gacha_drawing/create', 'GachaDrawingController@create')->name('gacha_drawing.create');
 Route::post('/gacha_drawing', 'GachaDrawingController@store')->name('gacha_drawing.store');
 
+Route::get('/gacha_list', 'GachaListController@index')->name('gacha_list.index');
+Route::get('/gacha/{gacha_style_id}', 'GachaController@index')->name('gacha.show');
+
 
 Route::get('/talks', 'TalksController@index')->name('talks.index');
 Route::get('/talks/create', 'TalksController@create')->name('talks.create');

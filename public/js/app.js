@@ -1843,19 +1843,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var form_data_list = {
-  name: '',
-  first_image: '',
+  a_word: '',
+  description: '',
+  background_image1: '',
   first_image_name: "---",
-  second_image: '',
-  second_image_name: "---"
+  background_image2: '',
+  second_image_name: "---",
+  background_image3: '',
+  third_image_name: "---"
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
   data: function data() {
     return {
       form: {
-        name: 'テスト'
+        a_word: '',
+        description: ''
       }
     };
   },
@@ -1863,16 +1885,22 @@ var form_data_list = {
     onFileChange: function onFileChange(e) {
       var file = e.target.files[0];
       var form_name = e.target.name;
-      form_data_list.name = this.form.name;
+      form_data_list.a_word = this.form.a_word;
+      form_data_list.description = this.form.description;
 
-      if (form_name == "first_image") {
-        form_data_list.first_image = file;
+      if (form_name == "background_image1") {
+        form_data_list.background_image1 = file;
         form_data_list.first_image_name = file.name;
       }
 
-      if (form_name == "second_image") {
-        form_data_list.second_image = file;
+      if (form_name == "background_image2") {
+        form_data_list.background_image2 = file;
         form_data_list.second_image_name = file.name;
+      }
+
+      if (form_name == "background_image3") {
+        form_data_list.background_image3 = file;
+        form_data_list.third_image_name = file.name;
       }
     },
     submit: function submit() {
@@ -1892,7 +1920,6 @@ var form_data_list = {
           var item = _step.value;
           console.log(item);
         } // axiosで送信処理を書く
-        // axios.post(apiUrl, formData)
 
       } catch (err) {
         _didIteratorError = true;
@@ -1908,6 +1935,8 @@ var form_data_list = {
           }
         }
       }
+
+      axios.post('/gacha_drawing', formData);
     }
   }
 });
@@ -37391,37 +37420,71 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pr-5" }, [
-    _c("div", { staticClass: "field" }, [
-      _c("div", { staticClass: "control" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.name,
-              expression: "form.name"
-            }
-          ],
-          staticClass: "input",
-          attrs: { type: "text", placeholder: "", name: "name" },
-          domProps: { value: _vm.form.name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form, "name", $event.target.value)
-            }
+    _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-md-4 col-form-label", attrs: { for: "a_word" } },
+        [_vm._v("一言")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.a_word,
+            expression: "form.a_word"
           }
-        })
-      ])
+        ],
+        staticClass: "input",
+        attrs: { type: "text", placeholder: "", name: "a_word" },
+        domProps: { value: _vm.form.a_word },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "a_word", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-md-4 col-form-label", attrs: { for: "a_word" } },
+        [_vm._v("説明")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.description,
+            expression: "form.description"
+          }
+        ],
+        staticClass: "input",
+        attrs: { type: "text", placeholder: "", name: "description" },
+        domProps: { value: _vm.form.description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "description", $event.target.value)
+          }
+        }
+      })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "file has-name" }, [
       _c("label", { staticClass: "file-label" }, [
         _c("input", {
           staticClass: "file-input",
-          attrs: { type: "file", name: "first_image" },
+          attrs: { type: "file", name: "background_image1" },
           on: { change: _vm.onFileChange }
         }),
         _vm._v(" "),
@@ -37439,7 +37502,7 @@ var render = function() {
       _c("label", { staticClass: "file-label" }, [
         _c("input", {
           staticClass: "file-input",
-          attrs: { type: "file", name: "second_image" },
+          attrs: { type: "file", name: "background_image2" },
           on: { change: _vm.onFileChange }
         }),
         _vm._v(" "),
@@ -37448,6 +37511,24 @@ var render = function() {
         _c("span", { staticClass: "file-name" }, [
           _vm._v(
             "\n          " + _vm._s(_vm.form.second_image_name) + "\n        "
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "file has-name" }, [
+      _c("label", { staticClass: "file-label" }, [
+        _c("input", {
+          staticClass: "file-input",
+          attrs: { type: "file", name: "background_image3" },
+          on: { change: _vm.onFileChange }
+        }),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("span", { staticClass: "file-name" }, [
+          _vm._v(
+            "\n          " + _vm._s(_vm.form.third_image_name) + "\n        "
           )
         ])
       ])
@@ -37463,6 +37544,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "file-cta" }, [
+      _c("span", { staticClass: "file-label" }, [
+        _vm._v("\n            画像を選択してください\n          ")
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

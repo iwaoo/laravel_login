@@ -6,8 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Admin\\Controllers\\AuthController' => $baseDir . '/app/Admin/Controllers/AuthController.php',
+    'App\\Admin\\Controllers\\ExampleController' => $baseDir . '/app/Admin/Controllers/ExampleController.php',
+    'App\\Admin\\Controllers\\HomeController' => $baseDir . '/app/Admin/Controllers/HomeController.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\GachaStyle' => $baseDir . '/app/GachaStyle.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -18,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\FollowerListController' => $baseDir . '/app/Http/Controllers/FollowerListController.php',
     'App\\Http\\Controllers\\FollowingListController' => $baseDir . '/app/Http/Controllers/FollowingListController.php',
     'App\\Http\\Controllers\\FollowsController' => $baseDir . '/app/Http/Controllers/FollowsController.php',
+    'App\\Http\\Controllers\\GachaDrawingController' => $baseDir . '/app/Http/Controllers/GachaDrawingController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ProfilesController' => $baseDir . '/app/Http/Controllers/ProfilesController.php',
     'App\\Http\\Controllers\\TalksController' => $baseDir . '/app/Http/Controllers/TalksController.php',

@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function gache_style()
+    {
+        return $this->hasOne(GachaStyle::class);
+    }
 }

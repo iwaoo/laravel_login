@@ -118,13 +118,8 @@
             formData.append(key, form_data_list[key])
           }
 
-          // コンソールで確認
-          for(let item of formData){
-            console.log(item);
-          }
-
           // axiosで送信処理を書く
-           axios.post('/gacha_drawing', formData)
+      //     axios.post('/gacha_drawing', formData)
         }
       }
     }

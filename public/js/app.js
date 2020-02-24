@@ -1908,35 +1908,9 @@ var form_data_list = {
 
       for (var key in form_data_list) {
         formData.append(key, form_data_list[key]);
-      } // コンソールで確認
+      } // axiosで送信処理を書く
+      //     axios.post('/gacha_drawing', formData)
 
-
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = formData[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var item = _step.value;
-          console.log(item);
-        } // axiosで送信処理を書く
-
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-            _iterator["return"]();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      axios.post('/gacha_drawing', formData);
     }
   }
 });

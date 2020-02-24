@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css'), false); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('css/gacha.css'), false); ?>" rel="stylesheet">
 </head>
 <body>
     <div id="app">

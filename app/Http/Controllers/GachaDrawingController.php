@@ -25,6 +25,7 @@ class GachaDrawingController extends Controller
     {
 
         //dd(request('first_image')->store('uploads', 'public'));
+        $background_image1 = request('background_image1')->store('uploads', 'public');
 
         $background_image1 = request('background_image1')->store('uploads', 'public');
         $background_image2 = request('background_image2')->store('uploads', 'public');

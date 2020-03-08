@@ -50852,6 +50852,7 @@ Vue.component('follow-button', __webpack_require__(/*! ./components/follow-butto
 Vue.component('followers', __webpack_require__(/*! ./components/followers.vue */ "./resources/js/components/followers.vue")["default"]);
 Vue.component('following', __webpack_require__(/*! ./components/following.vue */ "./resources/js/components/following.vue")["default"]);
 Vue.component('gacha-drawing', __webpack_require__(/*! ./components/gacha-drawing.vue */ "./resources/js/components/gacha-drawing.vue")["default"]);
+Vue.component('gacha-button', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './components/gacha-button.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))["default"]);
 Vue.component('test', __webpack_require__(/*! ./components/test.vue */ "./resources/js/components/test.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

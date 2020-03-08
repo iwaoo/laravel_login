@@ -12,14 +12,25 @@ class GachaController extends Controller
    *
    * @return \Illuminate\Contracts\Support\Renderable
    */
-  public function show($id)
+  public function show(Request $request, $id)
   {
 
     $item = GachaStyle::find($id);
-
-    //dd($item);
-
-      return view('gacha.show', compact('item'));
-
+    $gacha_style_id = $id;
+    return view('gacha.show', compact('item', 'gacha_style_id'));
   }
+  /**
+   * Show the application dashboard.
+   *
+   * @return \Illuminate\Contracts\Support\Renderable
+   */
+  public function index($gacha_style_id)
+  {
+    dd($gacha_style_id);
+    //return view('gacha.index');
+  }
+
+
+
+
 }

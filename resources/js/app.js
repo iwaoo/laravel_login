@@ -23,6 +23,7 @@ Vue.component('follow-button', require('./components/follow-button.vue').default
 Vue.component('followers', require('./components/followers.vue').default);
 Vue.component('following', require('./components/following.vue').default);
 Vue.component('gacha-drawing', require('./components/gacha-drawing.vue').default);
+
 Vue.component('test', require('./components/test.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

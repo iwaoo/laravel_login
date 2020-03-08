@@ -20,7 +20,9 @@ Route::get('/gacha_drawing/create', 'GachaDrawingController@create')->name('gach
 Route::post('/gacha_drawing', 'GachaDrawingController@store')->name('gacha_drawing.store');
 
 Route::get('/gacha_list', 'GachaListController@index')->name('gacha_list.index');
-Route::get('/gacha/{gacha_style_id}', 'GachaController@show')->name('gacha.show');
+Route::match(['get', 'post'], '/gacha/{gacha_tyle_id}', 'GachaController@show')->name('gacha.show');
+Route::get('/gacha/{gacha_style_id}/result', 'GachaController@index')->name('gacha.index');
+
 
 
 Route::get('/talks', 'TalksController@index')->name('talks.index');

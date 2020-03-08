@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+  <form action="/gacha/{{ $gacha_style_id }}/result" method="get">
     <div class="row">
         <div class="col-3 p-5">
         </div>
@@ -21,7 +22,12 @@
               <p class="gacha">横並びにできます</p>
           </div>
 
+          <div class="row pt-4">
+              <button class="btn btn-primary">ガチャ</button>
+          </div>
+
         </div>
     </div>
+    </form>
 </div>
 @endsection

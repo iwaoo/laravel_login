@@ -21,7 +21,3 @@ body{
     padding:  10px;             /* 余白指定 */
     height: 50px;              /* 高さ指定 */
 }
-
-#background_image1 {
-  background-image: url(/storage/{{ $item->background_image1 }});
-}

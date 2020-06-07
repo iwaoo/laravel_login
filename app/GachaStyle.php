@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\TalkUser;
+
 class GachaStyle extends Model
 {
   protected $guarded = [];
@@ -11,5 +13,10 @@ class GachaStyle extends Model
   public function user()
   {
       return $this->belongsTo(User::class);
+  }
+
+  public function playUser()
+  {
+      return $this->belongsTo(TalkUser::class);
   }
 }

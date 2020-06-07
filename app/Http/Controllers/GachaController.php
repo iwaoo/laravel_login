@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;    #追加してください。
 use \App\GachaStyle;
+use App\Talk;
 
 class GachaController extends Controller
 {
@@ -26,7 +28,11 @@ class GachaController extends Controller
    */
   public function index($gacha_style_id)
   {
-    dd($gacha_style_id);
+    $talk_list = Talk::get();
+    $result = mt_rand(0, count($talk_list)-1);
+    $talk_id = $talk_list[$result]['id'];
+    $user = Auth::user();
+    dd($user);
     //return view('gacha.index');
   }
 

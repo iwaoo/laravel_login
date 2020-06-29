@@ -11,8 +11,8 @@
                 <div class="row">
                     <h1>ガチャページを作る</h1>
                 </div>
-                <gacha-drawing> </gacha-drawing>
-                {{--
+                {{-- <gacha-drawing> </gacha-drawing>--}}
+
                 <div class="form-group row">
                     <label for="a_word" class="col-md-4 col-form-label">一言</label>
 
@@ -60,7 +60,7 @@
                 <div class="row pt-4">
                     <button class="btn btn-primary">Add New Post</button>
                 </div>
-                --}}
+
             </div>
         </div>
     </form>

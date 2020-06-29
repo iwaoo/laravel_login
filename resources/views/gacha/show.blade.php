@@ -15,12 +15,6 @@
           <div class="inline-block_test" id="background_image1" style="background-image: url(/storage/{{ $item->background_image1 }});">
               <p class="gacha">横並びにできます</p>
           </div>
-          <div class="inline-block_test" id="background_image2" style="background-image: url(/storage/{{ $item->background_image2 }});">
-              <p class="gacha">横並びにできます</p>
-          </div>
-          <div class="inline-block_test" id="background_image3" style="background-image: url(/storage/{{ $item->background_image3 }});">
-              <p class="gacha">横並びにできます</p>
-          </div>
 
           <div class="row pt-4">
               <button class="btn btn-primary">ガチャ</button>

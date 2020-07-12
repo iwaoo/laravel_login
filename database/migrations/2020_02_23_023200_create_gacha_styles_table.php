@@ -13,16 +13,22 @@ class CreateGachaStylesTable extends Migration
      */
     public function up()
     {
+      /*
         Schema::create('gacha_styles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('a_word')->nullable();
             $table->text('description')->nullable();
             $table->string('background_image1')->nullable();
-            $table->string('background_image2')->nullable();
-            $table->string('background_image3')->nullable();
+
             $table->timestamps();
         });
+        */
+        Schema::table('gacha_styles', function (Blueprint $table) {
+           $table->boolean('recommend_flg')->default(false);
+         });
+
+
     }
 
     /**
@@ -32,6 +38,6 @@ class CreateGachaStylesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gacha_styles');
+//        Schema::dropIfExists('gacha_styles');
     }
 }

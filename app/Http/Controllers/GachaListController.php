@@ -22,11 +22,4 @@ class GachaListController extends Controller
 
   }
 
-  public function gacha_recommend()
-  {
-    $ids = GachaStyle::select('id')->get();
-    //dd($ids);
-
-    return view('gacha_list.gacha_recommend', compact('ids'));
-  }
 }

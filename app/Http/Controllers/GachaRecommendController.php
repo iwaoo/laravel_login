@@ -28,9 +28,12 @@ class GachaRecommendController extends Controller
              if (is_array($_POST['id'])) {
                   foreach($_POST['id'] as $id){
 
-                     $GachaStyle = GachaStyle::where('id', $id);
-                     $GachaStyle->recommend_flg = true;
+
+                     $GachaStyle = GachaStyle::where('id', $id)->first();
+                     $GachaStyle->recommend_flg = false;
                      $GachaStyle->save();
+
+
                   }
             }
         }

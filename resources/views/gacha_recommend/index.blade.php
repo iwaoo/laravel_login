@@ -11,8 +11,7 @@
             @method('PATCH')
 
             @foreach ($GachaStyles as $GachaStyle)
-
-                <li><input name="id[]" type="checkbox" value="{{ $GachaStyle->id }}">
+                <li>@if ($GachaStyle->recommend_flg == true) <label for="recommend_flg" >true</label> @endif<input name="id[]" type="checkbox" value="{{ $GachaStyle->id }}">
                   <a href="{{ action('GachaController@show', $GachaStyle->id) }}">/gacha/{{ $GachaStyle->id }}</a></li>
 
             @endforeach

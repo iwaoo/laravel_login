@@ -41,7 +41,8 @@ class User extends Authenticatable
     {
        return $this
            ->belongsToMany(Talk::class, 'user_talk')
-           ->using(UserTalk::class)->withPivot(['gacha_style_id']);
+           ->using(UserTalk::class)->withPivot(['gacha_style_id'])
+           ->using(UserTalk::class)->withPivot(['hit_flg']);
     }
 
     public function hasTalk()

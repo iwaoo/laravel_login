@@ -33,9 +33,10 @@ class ProfilesController extends Controller
       $followingCount = $user->following->count();
 
       $talks = $user->hasTalk;
-      $tt = $user->talks()->find(1)->pivot->gacha_style;
-      //dd($tt);
-      return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount', 'talks'));
+      $user_talk = $user->talks()->where('user_id', '=', $user->id)->get();
+//      $user_talk = $user->talks()->find($user->id)->pivot->gacha_style;
+      dd($user_talk);
+//      return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount', 'talks'));
   }
 
   public function edit(User $user)

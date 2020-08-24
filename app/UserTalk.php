@@ -2,14 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Model;
 
-class UserTalk extends Pivot
+class UserTalk extends Model
 {
     protected $table = 'user_talk';
 
-    public function gacha_style()
-    {
-       return $this->belongsTo(GachaStyle::class);
-    }
+
 }

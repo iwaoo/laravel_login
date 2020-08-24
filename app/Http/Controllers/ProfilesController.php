@@ -33,9 +33,16 @@ class ProfilesController extends Controller
       $followingCount = $user->following->count();
 
       $talks = $user->hasTalk;
-      $user_talk = $user->talks()->where('user_id', '=', $user->id)->get();
-//      $user_talk = $user->talks()->find($user->id)->pivot->gacha_style;
-      dd($user_talk);
+      $userTalkes = \App\UserTalk::where('user_id', '=', $user->id)->get();
+        foreach ($userTalkes as $key => $userTalk) {
+          $gachaTalks[$key]['talks'] = \App\Talk::where('id', '=', $userTalk['talk_id'])->get();
+          $gachaTalks[$key]['hit_flg'] = $userTalk['hit_flg'];
+          $gachaTalks[$key]['gachaStyles'] = \App\GachaStyle::where('id', '=', $userTalk['gacha_style_id'])->get();
+
+        }
+
+      dd($gachaTalks);
+//        dd($talks);
 //      return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount', 'talks'));
   }
 

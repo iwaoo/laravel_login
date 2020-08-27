@@ -40,8 +40,10 @@ class ProfilesController extends Controller
           $gachaTalks[$key]['gachaStyles'] = \App\GachaStyle::where('id', '=', $userTalk['gacha_style_id'])->get();
 
         }
+        $recommendStyles = \App\GachaStyle::where('recommend_flg', '=', true)->limit(3)->get();
 
-      dd($gachaTalks);
+
+      dd($recommendStyles);
 //        dd($talks);
 //      return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount', 'talks'));
   }

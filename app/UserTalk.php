@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserTalk extends Model
 {
     protected $table = 'user_talk';
+    protected $guarded = [];
 
 
 }

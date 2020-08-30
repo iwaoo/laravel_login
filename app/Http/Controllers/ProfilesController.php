@@ -32,8 +32,8 @@ class ProfilesController extends Controller
 
       $followingCount = $user->following->count();
 
-      $talks = $user->hasTalk;
-      $userTalkes = \App\UserTalk::where('user_id', '=', $user->id)->get();
+//20200830日      $talks = $user->hasTalk;
+      $userTalkes = \App\UserTalk::where('user_id', '=', $user->id)->limit(1)->get();
         foreach ($userTalkes as $key => $userTalk) {
           $gachaTalks[$key]['talks'] = \App\Talk::where('id', '=', $userTalk['talk_id'])->get();
           $gachaTalks[$key]['hit_flg'] = $userTalk['hit_flg'];
@@ -43,9 +43,10 @@ class ProfilesController extends Controller
         $recommendStyles = \App\GachaStyle::where('recommend_flg', '=', true)->limit(3)->get();
 
 
-      dd($recommendStyles);
-//        dd($talks);
+//      dd($recommendStyles);
+
 //      return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount', 'talks'));
+    return view('profiles.index', compact('user', 'follows', 'followersCount', 'followingCount', 'gachaTalks', 'recommendStyles'));
   }
 
   public function edit(User $user)

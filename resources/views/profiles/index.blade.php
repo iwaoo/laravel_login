@@ -29,14 +29,28 @@
             <div class="d-flex justify-content-between align-items-baseline">
                 <div id="fo-bu" class="d-flex align-items-center pb-3">
                   <ul class="list-unstyled">
-                    <?php foreach ($talks as $talk): ?>
-                        <p>问话：{{ $talk->listen }}</p>
-                        <p>{{ $talk->name }}：{{ $talk->talk }}</p>
-                    <?php endforeach; ?>
+                        <p>问话：{{ $gachaTalks[0]['talks'][0]->listen }}</p>
+                        <p>{{ $gachaTalks[0]['talks'][0]->name }}：{{ $gachaTalks[0]['talks'][0]->talk }}</p>
+                        @if($gachaTalks[0]['hit_flg']==1)
+                          <p>罰！！！</p>
+                        @endif
 
                   </ul>
 
                 </div>
+            </div>
+            <div class="">
+              <h1>推薦(ガチャするページ)</h1>
+              @foreach($recommendStyles as $recommendStyl)
+                <li><a href="{{ action('GachaController@show', $recommendStyl->id) }}">/gacha/{{ $recommendStyl->id }}</a></li>
+              @endforeach
+            </div>
+            <br>
+
+            <div class="">
+              <h1>ガチャするページ一覧</h1>
+              <a href="/gacha_list">一覧ページへ</a>
+
             </div>
 
         </div>

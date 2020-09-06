@@ -50,13 +50,13 @@ class GachaController extends Controller
        ['user_id' => $user_id, 'talk_id' => $talk_id],
        ['gacha_style_id' => $gacha_style_id, 'hit_flg' => $hit_flg]
      );
-     
+
 
      $result['talk_result'] = $talk_result;
      $result['gacha_style_result'] = $gacha_style_result;
      $result['user'] = $user;
 
-     dd($result);
+     dd($create_user_talk);
 
 //     return view('gacha.index', compact('talk_result', 'gacha_style_result', 'user'));
    }

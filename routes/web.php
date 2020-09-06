@@ -11,9 +11,16 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
-});
+  if (Auth::check()) {
+    return redirect("/home");
+  } else {
+    return view('auth.login');
+  }
+
+ });
+//Route::redirect('/', '/home');
 
 
 Route::get('/gacha_drawing/create', 'GachaDrawingController@create')->name('gacha_drawing.create');

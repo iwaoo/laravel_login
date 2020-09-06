@@ -78,17 +78,7 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    罚你演一下和特朗普换了身体！！！
-                </div>
-                <div>
-                  <p>
-
-                  </p>
-              </div>
-            </div>
         </div>
+
     </body>
 </html>

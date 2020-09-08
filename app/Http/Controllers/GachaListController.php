@@ -7,6 +7,10 @@ use \App\GachaStyle;
 
 class GachaListController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
   /**
    * Show the application dashboard.
    *

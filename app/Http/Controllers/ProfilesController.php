@@ -8,15 +8,6 @@ use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 class ProfilesController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
 
   /**
    * Show the application dashboard.

@@ -15,7 +15,6 @@ class GachaDrawingController extends Controller
     }
 
 
-
     public function create()
     {
         return view('gacha_drawing.create');
